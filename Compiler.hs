@@ -53,6 +53,7 @@ instance Hjayson Value where
         FVal -> encodeJs False 
         IVal i -> encodeJs i 
         DVal d -> encodeJs d 
+        SVal s -> encodeJs s
 
 instance Hjayson NoiseM where 
     encodeJs GMech = encodeJs "Gauss"
@@ -78,7 +79,10 @@ instance Hjayson QueryStep where
         QMax par -> encodeJs [("max", encodeJs par)]
         QSum par -> encodeJs [("sum", encodeJs par)]
         QMean par -> encodeJs [("mean", encodeJs par)]
+        QGroup gs -> encodeJs [("groupby", encodeJs gs)]
 
 
+instance Hjayson [GroupRow] where 
+    encodeJs gs = encodeJs (map (\(GroupRow s vs) -> (s, encodeJs $ map encodeJs vs)) gs)
 
 

@@ -52,6 +52,11 @@ transQueryStep x = case x of
   WebDPConv.Abs.QMax mparam -> failure x
   WebDPConv.Abs.QSum mparam -> failure x
   WebDPConv.Abs.QMean mparam -> failure x
+  WebDPConv.Abs.QGroup grouprows -> failure x
+
+transGroupRow :: WebDPConv.Abs.GroupRow -> Result
+transGroupRow x = case x of
+  WebDPConv.Abs.GroupRow string values -> failure x
 
 transDataType :: WebDPConv.Abs.DataType -> Result
 transDataType x = case x of
@@ -67,6 +72,7 @@ transValue x = case x of
   WebDPConv.Abs.FVal -> failure x
   WebDPConv.Abs.IVal integer -> failure x
   WebDPConv.Abs.DVal double -> failure x
+  WebDPConv.Abs.SVal string -> failure x
 
 transMParam :: WebDPConv.Abs.MParam -> Result
 transMParam x = case x of

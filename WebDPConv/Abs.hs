@@ -36,6 +36,10 @@ data QueryStep
     | QMax MParam
     | QSum MParam
     | QMean MParam
+    | QGroup [GroupRow]
+  deriving (C.Eq, C.Ord, C.Show, C.Read)
+
+data GroupRow = GroupRow String [Value]
   deriving (C.Eq, C.Ord, C.Show, C.Read)
 
 data DataType
@@ -46,7 +50,7 @@ data DataType
     | EType StringList
   deriving (C.Eq, C.Ord, C.Show, C.Read)
 
-data Value = TVal | FVal | IVal Integer | DVal Double
+data Value = TVal | FVal | IVal Integer | DVal Double | SVal String
   deriving (C.Eq, C.Ord, C.Show, C.Read)
 
 data MParam = MParam String NoiseM Budget

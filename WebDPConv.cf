@@ -26,6 +26,10 @@ QMin.    QueryStep ::= "MIN"   MParam ;
 QMax.    QueryStep ::= "MAX"   MParam ;
 QSum.    QueryStep ::= "SUM"   MParam ;
 QMean.   QueryStep ::= "MEAN"  MParam ;
+QGroup.  QueryStep ::= "GROUP" "(" [GroupRow] ")" ;
+
+
+GroupRow. GroupRow ::= String "BY" "[" [Value] "]";
 
 
 
@@ -41,6 +45,7 @@ TVal. Value ::= "true" ;
 FVal. Value ::= "false" ;
 IVal. Value ::= Integer ; 
 DVal. Value ::= Double ;
+SVal. Value ::= String ;
 
 -- measurement parameters 
 MParam. MParam ::= String NoiseM Budget ;
@@ -61,6 +66,7 @@ separator ColumnSchema "," ;
 separator BinMap "," ;
 separator Value "," ;
 separator Query "" ;
+separator GroupRow ",";
 
 comment "//" ;
 comment "/*" "*/" ;

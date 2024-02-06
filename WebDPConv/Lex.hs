@@ -455,20 +455,21 @@ eitherResIdent tv s = treeFind resWords
 -- | The keywords and symbols of the language organized as binary search tree.
 resWords :: BTree
 resWords =
-  b "Laplace" 14
-    (b "Bool" 7
+  b "Int" 15
+    (b "Bool" 8
        (b ";" 4
-          (b ")" 2 (b "(" 1 N N) (b "," 3 N N)) (b "BIN" 6 (b "=" 5 N N) N))
-       (b "FILTER" 11
-          (b "Double" 9 (b "COUNT" 8 N N) (b "Enum" 10 N N))
-          (b "Int" 13 (b "Gauss" 12 N N) N)))
-    (b "SUM" 21
-       (b "MIN" 18
-          (b "MAX" 16 (b "MAP" 15 N N) (b "MEAN" 17 N N))
-          (b "SELECT" 20 (b "RENAME" 19 N N) N))
-       (b "]" 25
-          (b "Text" 23 (b "TO" 22 N N) (b "[" 24 N N))
-          (b "true" 27 (b "false" 26 N N) N)))
+          (b ")" 2 (b "(" 1 N N) (b "," 3 N N))
+          (b "BIN" 6 (b "=" 5 N N) (b "BY" 7 N N)))
+       (b "FILTER" 12
+          (b "Double" 10 (b "COUNT" 9 N N) (b "Enum" 11 N N))
+          (b "Gauss" 14 (b "GROUP" 13 N N) N)))
+    (b "SUM" 23
+       (b "MEAN" 19
+          (b "MAP" 17 (b "Laplace" 16 N N) (b "MAX" 18 N N))
+          (b "RENAME" 21 (b "MIN" 20 N N) (b "SELECT" 22 N N)))
+       (b "]" 27
+          (b "Text" 25 (b "TO" 24 N N) (b "[" 26 N N))
+          (b "true" 29 (b "false" 28 N N) N)))
   where
   b s n = B bs (TS bs n)
     where

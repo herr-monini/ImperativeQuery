@@ -27,6 +27,14 @@ mapExample 1234 1.0 = (
     ];
 )
 
+// group by query 
+groupByExample 1234 1.0 = (
+    GROUP (
+        "foo" BY [1, 2, 3],
+        "bar" BY ["my job", "your job"]
+    );
+)
+
 // bin query 
 binExample 1234 1.0 = (
     BIN [

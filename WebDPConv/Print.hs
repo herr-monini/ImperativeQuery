@@ -172,6 +172,11 @@ instance Print WebDPConv.Abs.QueryStep where
     WebDPConv.Abs.QMax mparam -> prPrec i 0 (concatD [doc (showString "MAX"), prt 0 mparam])
     WebDPConv.Abs.QSum mparam -> prPrec i 0 (concatD [doc (showString "SUM"), prt 0 mparam])
     WebDPConv.Abs.QMean mparam -> prPrec i 0 (concatD [doc (showString "MEAN"), prt 0 mparam])
+    WebDPConv.Abs.QGroup grouprows -> prPrec i 0 (concatD [doc (showString "GROUP"), doc (showString "("), prt 0 grouprows, doc (showString ")")])
+
+instance Print WebDPConv.Abs.GroupRow where
+  prt i = \case
+    WebDPConv.Abs.GroupRow str values -> prPrec i 0 (concatD [printString str, doc (showString "BY"), doc (showString "["), prt 0 values, doc (showString "]")])
 
 instance Print WebDPConv.Abs.DataType where
   prt i = \case
@@ -187,6 +192,7 @@ instance Print WebDPConv.Abs.Value where
     WebDPConv.Abs.FVal -> prPrec i 0 (concatD [doc (showString "false")])
     WebDPConv.Abs.IVal n -> prPrec i 0 (concatD [prt 0 n])
     WebDPConv.Abs.DVal d -> prPrec i 0 (concatD [prt 0 d])
+    WebDPConv.Abs.SVal str -> prPrec i 0 (concatD [printString str])
 
 instance Print WebDPConv.Abs.MParam where
   prt i = \case
@@ -232,3 +238,8 @@ instance Print [WebDPConv.Abs.Value] where
 instance Print [WebDPConv.Abs.Query] where
   prt _ [] = concatD []
   prt _ (x:xs) = concatD [prt 0 x, prt 0 xs]
+
+instance Print [WebDPConv.Abs.GroupRow] where
+  prt _ [] = concatD []
+  prt _ [x] = concatD [prt 0 x]
+  prt _ (x:xs) = concatD [prt 0 x, doc (showString ","), prt 0 xs]
