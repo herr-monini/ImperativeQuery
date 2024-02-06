@@ -186,4 +186,4 @@ Multi-line comments `/* comment */`
 ## Compilation
 The `.iq` compiler takes 1 mandatory argument (path to `.iq`-file) and one optional (path to output directory). By default, the compiler will create a directory `out`. If the supplied directory doesn't exist, the compiler will create it and its parents. 
 
-You can either download the repo, make the grammar and compile the `Main.hs` file to create the compiler, or you can use the `impquery` file in the repo as a compiler.
+You can either download the repo, make the grammar and compile the `Main.hs` file to create the compiler, or you can use the [impquery](impquery) file in the repo as a compiler.
