@@ -73,7 +73,7 @@ instance Hjayson QueryStep where
             ("rename", encodeJs $ zipWith (\f t -> (f, encodeJs t)) from to)]
         QFilter (Slist fs) -> encodeJs [("filter", encodeJs (map encodeJs fs))]
         QMap f cs -> encodeJs [("map", encodeJs [("fun", encodeJs f), ("schema", encodeJs $ map encodeJs cs)])]
-        QBin bs -> encodeJs [("bin", encodeJs (map encodeJs bs))]
+        QBin bs -> encodeJs [("bin", encodeJs (map (\(BMap c vs) -> (c, encodeJs $ map encodeJs vs)) bs))]
         QCnt par -> encodeJs [("count", encodeJs par)]
         QMin par -> encodeJs [("min", encodeJs par)]
         QMax par -> encodeJs [("max", encodeJs par)]
