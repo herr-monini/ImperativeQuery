@@ -1,0 +1,15 @@
+
+
+// a query
+myQuery 12345 0.2 = (
+    SELECT ["foo1"];
+    RENAME ["foo"] TO ["baz"];
+) 
+
+/*
+    Another query
+*/
+myQuery2 12345 0.1 = (
+    SELECT ["foo"] ;
+    MAX "foo" Gauss 0.1;
+)

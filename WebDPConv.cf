@@ -1,0 +1,65 @@
+
+
+Program. Prog ::= [Query];
+
+
+-- query 
+Q. Query ::= Ident DatasetId Budget "=" "(" [QueryStep] ")" ;
+
+DId. DatasetId ::= Integer ;
+
+
+PureDP.     Budget ::= Double ;
+ApproxDP.   Budget ::= Double Double ;
+
+
+Slist. StringList ::= "[" [String] "]" ;
+
+QSelect. QueryStep ::= "SELECT" StringList ;
+QRename. QueryStep ::= "RENAME" StringList "TO" StringList ;
+QFilter. QueryStep ::= "FILTER" StringList ;
+QMap.    QueryStep ::= "MAP" String "[" [ColumnSchema] "]";
+QBin.    QueryStep ::= "BIN" "[" [BinMap] "]" ;
+QCnt.    QueryStep ::= "COUNT" MParam ;
+QMin.    QueryStep ::= "MIN"   MParam ;
+QMax.    QueryStep ::= "MAX"   MParam ;
+QSum.    QueryStep ::= "SUM"   MParam ;
+QMean.   QueryStep ::= "MEAN"  MParam ;
+
+
+
+-- Types 
+BType. DataType ::= "Bool" ;
+IType. DataType ::= "Int" Integer Integer ;
+DType. DataType ::= "Double" Double Double ;
+TType. DataType ::= "Text" ;
+EType. DataType ::= "Enum" StringList ;
+
+-- Values 
+TVal. Value ::= "true" ;
+FVal. Value ::= "false" ;
+IVal. Value ::= Integer ; 
+DVal. Value ::= Double ;
+
+-- measurement parameters 
+MParam. MParam ::= String NoiseM Budget ;
+
+-- NoiseMech
+GMech. NoiseM ::= "Gauss" ; 
+LMech. NoiseM ::= "Laplace" ;
+
+
+BMap. BinMap ::= String "[" [Value] "]";
+
+CScheme. ColumnSchema ::= String DataType ;
+
+
+terminator QueryStep ";" ;
+separator String "," ;
+separator ColumnSchema "," ;
+separator BinMap "," ;
+separator Value "," ;
+separator Query "" ;
+
+comment "//" ;
+comment "/*" "*/" ;

@@ -1,0 +1,1 @@
+{"budget":{"epsilon":0.1},"dataset":12345,"query":[{"select":["foo"]},{"max":{"budget":{"epsilon":0.1},"column":"foo","mech":"Gauss"}}]}
