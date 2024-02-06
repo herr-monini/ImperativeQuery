@@ -1,0 +1,1 @@
+{"budget":{"epsilon":0.1},"dataset":123,"query":[{"map":{"fun":"{'baz': boo + baa}","schema":[{"name":"baz","type":{"high":25,"low":1,"name":"Int"}}]}}]}

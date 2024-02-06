@@ -62,7 +62,7 @@ instance Hjayson BinMap where
     encodeJs (BMap string vs) = encodeJs [(string, encodeJs (map encodeJs vs))]
 
 instance Hjayson ColumnSchema where 
-    encodeJs (CScheme col typ) = encodeJs [(col, encodeJs typ)]
+    encodeJs (CScheme col typ) = encodeJs [("name", encodeJs col), ("type", encodeJs typ)]
 
 
 instance Hjayson QueryStep where 
@@ -71,12 +71,14 @@ instance Hjayson QueryStep where
         QRename (Slist from) (Slist to) -> encodeJs [
             ("rename", encodeJs $ zipWith (\f t -> (f, encodeJs t)) from to)]
         QFilter (Slist fs) -> encodeJs [("filter", encodeJs (map encodeJs fs))]
-        QMap f cs -> encodeJs [("map", encodeJs [(f, encodeJs (map encodeJs cs))])]
+        QMap f cs -> encodeJs [("map", encodeJs [("fun", encodeJs f), ("schema", encodeJs $ map encodeJs cs)])]
         QBin bs -> encodeJs [("bin", encodeJs (map encodeJs bs))]
         QCnt par -> encodeJs [("count", encodeJs par)]
         QMin par -> encodeJs [("min", encodeJs par)]
         QMax par -> encodeJs [("max", encodeJs par)]
         QSum par -> encodeJs [("sum", encodeJs par)]
         QMean par -> encodeJs [("mean", encodeJs par)]
+
+
 
 
