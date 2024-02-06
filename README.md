@@ -166,7 +166,7 @@ GROUP (
 ``` 
 
 #### Measurement Param
-A measurement parameter is defined as the tripple:
+A measurement parameter is defined as the triple:
 ```
 ColumnName NoiseMechanism Budget
 ```
