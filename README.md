@@ -21,6 +21,7 @@
     
 ## About 
 Imperative Query is a small DSL, whose aim is to make it easier to create compiled queries for the [WebDP API](https://github.com/dpella/WebDP/tree/main). The queries are written in `.iq` files, and are compiled to `.json` files that adhere to the [query WebDP API](https://editor.swagger.io/?url=https://webdp.dev/api/WebDP-1.0.0.yml). 
+The [BNFC](https://github.com/BNFC) has been used for defining, parsing and lexing the grammar.
 
 
 ## Disclaimer 
