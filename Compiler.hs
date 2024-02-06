@@ -10,6 +10,7 @@ import WebDPConv.Abs
 import Hjayson 
 
 import qualified Data.Map as M
+import Data.Binary (encode)
 
 
 type Name    = String
@@ -40,7 +41,16 @@ instance Hjayson DataType where
         EType (Slist ls)  -> encodeJs [("name", encodeJs "Enum"), ("labels", encodeJs $ map encodeJs ls)]
 
 instance Hjayson MParam where 
-    encodeJs (MParam name noise budget) = encodeJs [("column", encodeJs name), ("mech", encodeJs noise), ("budget", encodeJs budget)]
+    encodeJs m = case m of 
+        MParam name noise budget -> encodeJs [("column", encodeJs name), ("mech", encodeJs noise), ("budget", encodeJs budget)]
+        MParamC name -> encodeJs [("column", encodeJs name)]
+        MParamN noise -> encodeJs [("mech", encodeJs noise)]
+        MParamB budget -> encodeJs [("budget", encodeJs budget)]
+        MParamCN name noise -> encodeJs [("column", encodeJs name), ("mech", encodeJs noise)]
+        MParamCB name budget -> encodeJs [("column", encodeJs name), ("budget", encodeJs budget)]
+        MParamNB noise budget -> encodeJs [("mech", encodeJs noise), ("budget", encodeJs budget)]
+        MParamNull -> encodeJs Null
+  
 
 instance Hjayson Budget where 
     encodeJs b = case b of 
@@ -80,9 +90,16 @@ instance Hjayson QueryStep where
         QSum par -> encodeJs [("sum", encodeJs par)]
         QMean par -> encodeJs [("mean", encodeJs par)]
         QGroup gs -> encodeJs [("groupby", encodeJs gs)]
+        
 
 
 instance Hjayson [GroupRow] where 
     encodeJs gs = encodeJs (map (\(GroupRow s vs) -> (s, encodeJs $ map encodeJs vs)) gs)
 
+instance Hjayson Null where 
+    encodeJs n = encodeJs $ go n 
+        where 
+            go :: Null -> [(String, JsonValue)]
+            go n = []
 
+data Null = Null deriving (Eq, Show)

@@ -5,7 +5,8 @@
 module Hjayson (
     Json,
     Hjayson (encodeJs),
-    toJsonString
+    toJsonString,
+    JsonValue
 ) where
 
 import qualified Data.Map as M

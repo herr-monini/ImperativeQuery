@@ -32,7 +32,6 @@ QGroup.  QueryStep ::= "GROUP" "(" [GroupRow] ")" ;
 GroupRow. GroupRow ::= String "BY" "[" [Value] "]";
 
 
-
 -- Types 
 BType. DataType ::= "Bool" ;
 IType. DataType ::= "Int" Integer Integer ;
@@ -49,6 +48,13 @@ SVal. Value ::= String ;
 
 -- measurement parameters 
 MParam. MParam ::= String NoiseM Budget ;
+MParamC. MParam ::= String ;
+MParamN. MParam ::= NoiseM ;
+MParamB. MParam ::= Budget ;
+MParamCN. MParam ::= String NoiseM ;
+MParamCB. MParam ::= String Budget ;
+MParamNB. MParam ::= NoiseM Budget ;
+MParamNull. MParam ::= ;
 
 -- NoiseMech
 GMech. NoiseM ::= "Gauss" ; 

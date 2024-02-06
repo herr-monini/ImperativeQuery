@@ -53,7 +53,15 @@ data DataType
 data Value = TVal | FVal | IVal Integer | DVal Double | SVal String
   deriving (C.Eq, C.Ord, C.Show, C.Read)
 
-data MParam = MParam String NoiseM Budget
+data MParam
+    = MParam String NoiseM Budget
+    | MParamC String
+    | MParamN NoiseM
+    | MParamB Budget
+    | MParamCN String NoiseM
+    | MParamCB String Budget
+    | MParamNB NoiseM Budget
+    | MParamNull
   deriving (C.Eq, C.Ord, C.Show, C.Read)
 
 data NoiseM = GMech | LMech

@@ -197,6 +197,13 @@ instance Print WebDPConv.Abs.Value where
 instance Print WebDPConv.Abs.MParam where
   prt i = \case
     WebDPConv.Abs.MParam str noisem budget -> prPrec i 0 (concatD [printString str, prt 0 noisem, prt 0 budget])
+    WebDPConv.Abs.MParamC str -> prPrec i 0 (concatD [printString str])
+    WebDPConv.Abs.MParamN noisem -> prPrec i 0 (concatD [prt 0 noisem])
+    WebDPConv.Abs.MParamB budget -> prPrec i 0 (concatD [prt 0 budget])
+    WebDPConv.Abs.MParamCN str noisem -> prPrec i 0 (concatD [printString str, prt 0 noisem])
+    WebDPConv.Abs.MParamCB str budget -> prPrec i 0 (concatD [printString str, prt 0 budget])
+    WebDPConv.Abs.MParamNB noisem budget -> prPrec i 0 (concatD [prt 0 noisem, prt 0 budget])
+    WebDPConv.Abs.MParamNull -> prPrec i 0 (concatD [])
 
 instance Print WebDPConv.Abs.NoiseM where
   prt i = \case

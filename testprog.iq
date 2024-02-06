@@ -52,3 +52,12 @@ aggregateExample 1234 1.0 = (
     MEAN "you're so mean" Gauss 0.1 1000.1;
 
 )
+
+// empty aggregates 
+aggregateExample2 1234 1.0 = (
+    COUNT;
+    MAX;
+    MIN;
+    SUM;
+    MEAN;
+)

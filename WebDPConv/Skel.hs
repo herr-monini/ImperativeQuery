@@ -77,6 +77,13 @@ transValue x = case x of
 transMParam :: WebDPConv.Abs.MParam -> Result
 transMParam x = case x of
   WebDPConv.Abs.MParam string noisem budget -> failure x
+  WebDPConv.Abs.MParamC string -> failure x
+  WebDPConv.Abs.MParamN noisem -> failure x
+  WebDPConv.Abs.MParamB budget -> failure x
+  WebDPConv.Abs.MParamCN string noisem -> failure x
+  WebDPConv.Abs.MParamCB string budget -> failure x
+  WebDPConv.Abs.MParamNB noisem budget -> failure x
+  WebDPConv.Abs.MParamNull -> failure x
 
 transNoiseM :: WebDPConv.Abs.NoiseM -> Result
 transNoiseM x = case x of
