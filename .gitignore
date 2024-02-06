@@ -2,3 +2,5 @@
 # Ignore Haskell compiled files
 **/*.o
 **/*.hi
+**/*.x
+**/*.y
