@@ -96,3 +96,68 @@ BIN [
     ];
 
 ```
+(See [Value](#value))
+
+#### COUNT 
+The syntactical rule for counting is:
+```
+COUNT MeasurementParam;
+```
+(See [MeasurementParam](#measurement-param))
+
+#### MIN 
+The syntactical rule for `MIN`:
+```
+MIN MeasurementParam;
+```
+(See [MeasurementParam](#measurement-param))
+
+#### MAX
+The syntactical rule for `MAX` is:
+```
+MAX MeasurementParam;
+```
+(See [MeasurementParam](#measurement-param))
+
+#### SUM
+The syntactical rule for `SUM` is:
+```
+SUM MeasurementParam;
+```
+(See [MeasurementParam](#measurement-param))
+
+#### MEAN
+The syntactical rule for `MEAN` is:
+```
+MEAN MeasurementParam;
+```
+(See [MeasurementParam](#measurement-param))
+
+#### Measurement Param
+A measurement parameter is defined as the tripple:
+```
+ColumnName NoiseMechanism Budget
+```
+(See [NoiseMechanism](#noise-mechanism), [Budget](#budget))
+
+#### Noise Mechanism 
+There are two noise mechanisms defined:
+```
+Gauss
+Laplace
+```
+
+#### Budget
+A DP-budget is declared as either pure (only epsilon) or approximate (epsilon-delta):
+```
+// pure budget (epsilon)
+Double
+
+// approx budget (epsilon, delta)
+Double Double
+```
+
+## Compilation
+The `.iq` compiler takes 1 mandatory argument (path to `.iq`-file) and one optional (path to output directory). By default, the compiler will create a directory `out`. If the supplied directory doesn't exist, the compiler will create it and its parents. 
+
+You can either download the repo, make the grammar and compile the `Main.hs` file to create the compiler, or you can use the `impquery` file in the repo as a compiler.
