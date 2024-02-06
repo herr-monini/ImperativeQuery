@@ -16,6 +16,7 @@
     * [MAX](#max) 
     * [SUM](#sum) 
     * [MEAN](#mean)
+    * [GROUP](#group-by)
 - [Compilation](#compilation)
     
 ## About 
@@ -154,12 +155,22 @@ MEAN MeasurementParam;
 ```
 (See [MeasurementParam](#measurement-param))
 
+#### GROUP BY
+The syntactical rule for `GROUP BY` is:
+```
+GROUP ( 
+    "columnx" BY [Value],
+    ...
+    "columnz" BY [Value]
+ )
+``` 
+
 #### Measurement Param
 A measurement parameter is defined as the tripple:
 ```
 ColumnName NoiseMechanism Budget
 ```
-(See [NoiseMechanism](#noise-mechanism), [Budget](#budget))
+(See [NoiseMechanism](#noise-mechanism), [Budget](#budget)). All arguments are optional.
 
 #### Noise Mechanism 
 There are two noise mechanisms defined:
