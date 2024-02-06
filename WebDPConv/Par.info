@@ -24,60 +24,56 @@ Grammar
 	%start_pListBinMap -> ListBinMap                   (15)
 	%start_pListValue -> ListValue                     (16)
 	%start_pListQuery -> ListQuery                     (17)
-	%start_pListIdent -> ListIdent                     (18)
-	Ident -> L_Ident                                   (19)
-	Double -> L_doubl                                  (20)
-	Integer -> L_integ                                 (21)
-	String -> L_quoted                                 (22)
-	Prog -> ListQuery                                  (23)
-	Query -> Ident DatasetId Budget '=' '(' ListQueryStep ')'   (24)
-	DatasetId -> Integer                               (25)
-	Budget -> Double                                   (26)
-	Budget -> Double Double                            (27)
-	StringList -> '[' ListString ']'                   (28)
-	QueryStep -> 'SELECT' StringList                   (29)
-	QueryStep -> 'RENAME' StringList 'TO' StringList   (30)
-	QueryStep -> 'FILTER' StringList                   (31)
-	QueryStep -> 'MAP' String '[' ListColumnSchema ']'   (32)
-	QueryStep -> 'BIN' '[' ListBinMap ']'              (33)
-	QueryStep -> 'COUNT' MParam                        (34)
-	QueryStep -> 'MIN' MParam                          (35)
-	QueryStep -> 'MAX' MParam                          (36)
-	QueryStep -> 'SUM' MParam                          (37)
-	QueryStep -> 'MEAN' MParam                         (38)
-	DataType -> 'Bool'                                 (39)
-	DataType -> 'Int' Integer Integer                  (40)
-	DataType -> 'Double' Double Double                 (41)
-	DataType -> 'Text'                                 (42)
-	DataType -> 'Enum' StringList                      (43)
-	Value -> 'true'                                    (44)
-	Value -> 'false'                                   (45)
-	Value -> Integer                                   (46)
-	Value -> Double                                    (47)
-	MParam -> String NoiseM Budget                     (48)
-	NoiseM -> 'Gauss'                                  (49)
-	NoiseM -> 'Laplace'                                (50)
-	BinMap -> String '[' ListValue ']'                 (51)
-	ColumnSchema -> String DataType                    (52)
-	ListQueryStep ->                                   (53)
-	ListQueryStep -> QueryStep ';' ListQueryStep       (54)
-	ListString ->                                      (55)
-	ListString -> String                               (56)
-	ListString -> String ',' ListString                (57)
-	ListColumnSchema ->                                (58)
-	ListColumnSchema -> ColumnSchema                   (59)
-	ListColumnSchema -> ColumnSchema ',' ListColumnSchema   (60)
-	ListBinMap ->                                      (61)
-	ListBinMap -> BinMap                               (62)
-	ListBinMap -> BinMap ',' ListBinMap                (63)
-	ListValue ->                                       (64)
-	ListValue -> Value                                 (65)
-	ListValue -> Value ',' ListValue                   (66)
-	ListQuery ->                                       (67)
-	ListQuery -> Query ListQuery                       (68)
-	ListIdent ->                                       (69)
-	ListIdent -> Ident                                 (70)
-	ListIdent -> Ident ',' ListIdent                   (71)
+	Ident -> L_Ident                                   (18)
+	Double -> L_doubl                                  (19)
+	Integer -> L_integ                                 (20)
+	String -> L_quoted                                 (21)
+	Prog -> ListQuery                                  (22)
+	Query -> Ident DatasetId Budget '=' '(' ListQueryStep ')'   (23)
+	DatasetId -> Integer                               (24)
+	Budget -> Double                                   (25)
+	Budget -> Double Double                            (26)
+	StringList -> '[' ListString ']'                   (27)
+	QueryStep -> 'SELECT' StringList                   (28)
+	QueryStep -> 'RENAME' StringList 'TO' StringList   (29)
+	QueryStep -> 'FILTER' StringList                   (30)
+	QueryStep -> 'MAP' String '[' ListColumnSchema ']'   (31)
+	QueryStep -> 'BIN' '[' ListBinMap ']'              (32)
+	QueryStep -> 'COUNT' MParam                        (33)
+	QueryStep -> 'MIN' MParam                          (34)
+	QueryStep -> 'MAX' MParam                          (35)
+	QueryStep -> 'SUM' MParam                          (36)
+	QueryStep -> 'MEAN' MParam                         (37)
+	DataType -> 'Bool'                                 (38)
+	DataType -> 'Int' Integer Integer                  (39)
+	DataType -> 'Double' Double Double                 (40)
+	DataType -> 'Text'                                 (41)
+	DataType -> 'Enum' StringList                      (42)
+	Value -> 'true'                                    (43)
+	Value -> 'false'                                   (44)
+	Value -> Integer                                   (45)
+	Value -> Double                                    (46)
+	MParam -> String NoiseM Budget                     (47)
+	NoiseM -> 'Gauss'                                  (48)
+	NoiseM -> 'Laplace'                                (49)
+	BinMap -> String '[' ListValue ']'                 (50)
+	ColumnSchema -> String DataType                    (51)
+	ListQueryStep ->                                   (52)
+	ListQueryStep -> QueryStep ';' ListQueryStep       (53)
+	ListString ->                                      (54)
+	ListString -> String                               (55)
+	ListString -> String ',' ListString                (56)
+	ListColumnSchema ->                                (57)
+	ListColumnSchema -> ColumnSchema                   (58)
+	ListColumnSchema -> ColumnSchema ',' ListColumnSchema   (59)
+	ListBinMap ->                                      (60)
+	ListBinMap -> BinMap                               (61)
+	ListBinMap -> BinMap ',' ListBinMap                (62)
+	ListValue ->                                       (63)
+	ListValue -> Value                                 (64)
+	ListValue -> Value ',' ListValue                   (65)
+	ListQuery ->                                       (66)
+	ListQuery -> Query ListQuery                       (67)
 
 -----------------------------------------------------------------------------
 Terminals
@@ -135,30 +131,28 @@ Non-terminals
 	%start_pListBinMap rule  15
 	%start_pListValue rule  16
 	%start_pListQuery rule  17
-	%start_pListIdent rule  18
-	Ident           rule  19
-	Double          rule  20
-	Integer         rule  21
-	String          rule  22
-	Prog            rule  23
-	Query           rule  24
-	DatasetId       rule  25
-	Budget          rules 26, 27
-	StringList      rule  28
-	QueryStep       rules 29, 30, 31, 32, 33, 34, 35, 36, 37, 38
-	DataType        rules 39, 40, 41, 42, 43
-	Value           rules 44, 45, 46, 47
-	MParam          rule  48
-	NoiseM          rules 49, 50
-	BinMap          rule  51
-	ColumnSchema    rule  52
-	ListQueryStep   rules 53, 54
-	ListString      rules 55, 56, 57
-	ListColumnSchema rules 58, 59, 60
-	ListBinMap      rules 61, 62, 63
-	ListValue       rules 64, 65, 66
-	ListQuery       rules 67, 68
-	ListIdent       rules 69, 70, 71
+	Ident           rule  18
+	Double          rule  19
+	Integer         rule  20
+	String          rule  21
+	Prog            rule  22
+	Query           rule  23
+	DatasetId       rule  24
+	Budget          rules 25, 26
+	StringList      rule  27
+	QueryStep       rules 28, 29, 30, 31, 32, 33, 34, 35, 36, 37
+	DataType        rules 38, 39, 40, 41, 42
+	Value           rules 43, 44, 45, 46
+	MParam          rule  47
+	NoiseM          rules 48, 49
+	BinMap          rule  50
+	ColumnSchema    rule  51
+	ListQueryStep   rules 52, 53
+	ListString      rules 54, 55, 56
+	ListColumnSchema rules 57, 58, 59
+	ListBinMap      rules 60, 61, 62
+	ListValue       rules 63, 64, 65
+	ListQuery       rules 66, 67
 
 -----------------------------------------------------------------------------
 States
@@ -167,1183 +161,1138 @@ State 0
 
 	%start_pProg -> . Prog                              (rule 0)
 
-	L_Ident        shift, and enter state 20
-	%eof           reduce using rule 67
+	L_Ident        shift, and enter state 19
+	%eof           reduce using rule 66
 
-	Ident          goto state 23
-	Prog           goto state 77
-	Query          goto state 24
-	ListQuery      goto state 78
+	Ident          goto state 20
+	Prog           goto state 74
+	Query          goto state 21
+	ListQuery      goto state 75
 
 State 1
 
 	%start_pQuery -> . Query                            (rule 1)
 
-	L_Ident        shift, and enter state 20
+	L_Ident        shift, and enter state 19
 
-	Ident          goto state 23
-	Query          goto state 76
+	Ident          goto state 20
+	Query          goto state 73
 
 State 2
 
 	%start_pDatasetId -> . DatasetId                    (rule 2)
 
-	L_integ        shift, and enter state 33
+	L_integ        shift, and enter state 30
 
-	Integer        goto state 74
-	DatasetId      goto state 75
+	Integer        goto state 71
+	DatasetId      goto state 72
 
 State 3
 
 	%start_pBudget -> . Budget                          (rule 3)
 
-	L_doubl        shift, and enter state 32
+	L_doubl        shift, and enter state 29
 
-	Double         goto state 72
-	Budget         goto state 73
+	Double         goto state 69
+	Budget         goto state 70
 
 State 4
 
 	%start_pStringList -> . StringList                  (rule 4)
 
-	'['            shift, and enter state 71
+	'['            shift, and enter state 68
 
-	StringList     goto state 70
+	StringList     goto state 67
 
 State 5
 
 	%start_pQueryStep -> . QueryStep                    (rule 5)
 
-	'BIN'          shift, and enter state 45
-	'COUNT'        shift, and enter state 46
-	'FILTER'       shift, and enter state 47
-	'MAP'          shift, and enter state 48
-	'MAX'          shift, and enter state 49
-	'MEAN'         shift, and enter state 50
-	'MIN'          shift, and enter state 51
-	'RENAME'       shift, and enter state 52
-	'SELECT'       shift, and enter state 53
-	'SUM'          shift, and enter state 54
+	'BIN'          shift, and enter state 42
+	'COUNT'        shift, and enter state 43
+	'FILTER'       shift, and enter state 44
+	'MAP'          shift, and enter state 45
+	'MAX'          shift, and enter state 46
+	'MEAN'         shift, and enter state 47
+	'MIN'          shift, and enter state 48
+	'RENAME'       shift, and enter state 49
+	'SELECT'       shift, and enter state 50
+	'SUM'          shift, and enter state 51
 
-	QueryStep      goto state 69
+	QueryStep      goto state 66
 
 State 6
 
 	%start_pDataType -> . DataType                      (rule 6)
 
-	'Bool'         shift, and enter state 64
-	'Double'       shift, and enter state 65
-	'Enum'         shift, and enter state 66
-	'Int'          shift, and enter state 67
-	'Text'         shift, and enter state 68
+	'Bool'         shift, and enter state 61
+	'Double'       shift, and enter state 62
+	'Enum'         shift, and enter state 63
+	'Int'          shift, and enter state 64
+	'Text'         shift, and enter state 65
 
-	DataType       goto state 63
+	DataType       goto state 60
 
 State 7
 
 	%start_pValue -> . Value                            (rule 7)
 
-	'false'        shift, and enter state 30
-	'true'         shift, and enter state 31
-	L_doubl        shift, and enter state 32
-	L_integ        shift, and enter state 33
+	'false'        shift, and enter state 27
+	'true'         shift, and enter state 28
+	L_doubl        shift, and enter state 29
+	L_integ        shift, and enter state 30
 
-	Double         goto state 26
-	Integer        goto state 27
-	Value          goto state 62
+	Double         goto state 23
+	Integer        goto state 24
+	Value          goto state 59
 
 State 8
 
 	%start_pMParam -> . MParam                          (rule 8)
 
-	L_quoted       shift, and enter state 37
+	L_quoted       shift, and enter state 34
 
-	String         goto state 60
-	MParam         goto state 61
+	String         goto state 57
+	MParam         goto state 58
 
 State 9
 
 	%start_pNoiseM -> . NoiseM                          (rule 9)
 
-	'Gauss'        shift, and enter state 58
-	'Laplace'      shift, and enter state 59
+	'Gauss'        shift, and enter state 55
+	'Laplace'      shift, and enter state 56
 
-	NoiseM         goto state 57
+	NoiseM         goto state 54
 
 State 10
 
 	%start_pBinMap -> . BinMap                          (rule 10)
 
-	L_quoted       shift, and enter state 37
+	L_quoted       shift, and enter state 34
 
-	String         goto state 34
-	BinMap         goto state 56
+	String         goto state 31
+	BinMap         goto state 53
 
 State 11
 
 	%start_pColumnSchema -> . ColumnSchema              (rule 11)
 
-	L_quoted       shift, and enter state 37
+	L_quoted       shift, and enter state 34
 
-	String         goto state 38
-	ColumnSchema   goto state 55
+	String         goto state 35
+	ColumnSchema   goto state 52
 
 State 12
 
 	%start_pListQueryStep -> . ListQueryStep            (rule 12)
 
-	'BIN'          shift, and enter state 45
-	'COUNT'        shift, and enter state 46
-	'FILTER'       shift, and enter state 47
-	'MAP'          shift, and enter state 48
-	'MAX'          shift, and enter state 49
-	'MEAN'         shift, and enter state 50
-	'MIN'          shift, and enter state 51
-	'RENAME'       shift, and enter state 52
-	'SELECT'       shift, and enter state 53
-	'SUM'          shift, and enter state 54
-	%eof           reduce using rule 53
+	'BIN'          shift, and enter state 42
+	'COUNT'        shift, and enter state 43
+	'FILTER'       shift, and enter state 44
+	'MAP'          shift, and enter state 45
+	'MAX'          shift, and enter state 46
+	'MEAN'         shift, and enter state 47
+	'MIN'          shift, and enter state 48
+	'RENAME'       shift, and enter state 49
+	'SELECT'       shift, and enter state 50
+	'SUM'          shift, and enter state 51
+	%eof           reduce using rule 52
 
-	QueryStep      goto state 43
-	ListQueryStep  goto state 44
+	QueryStep      goto state 40
+	ListQueryStep  goto state 41
 
 State 13
 
 	%start_pListString -> . ListString                  (rule 13)
 
-	L_quoted       shift, and enter state 37
-	%eof           reduce using rule 55
+	L_quoted       shift, and enter state 34
+	%eof           reduce using rule 54
 
-	String         goto state 41
-	ListString     goto state 42
+	String         goto state 38
+	ListString     goto state 39
 
 State 14
 
 	%start_pListColumnSchema -> . ListColumnSchema      (rule 14)
 
-	L_quoted       shift, and enter state 37
-	%eof           reduce using rule 58
+	L_quoted       shift, and enter state 34
+	%eof           reduce using rule 57
 
-	String         goto state 38
-	ColumnSchema   goto state 39
-	ListColumnSchemagoto state 40
+	String         goto state 35
+	ColumnSchema   goto state 36
+	ListColumnSchemagoto state 37
 
 State 15
 
 	%start_pListBinMap -> . ListBinMap                  (rule 15)
 
-	L_quoted       shift, and enter state 37
-	%eof           reduce using rule 61
+	L_quoted       shift, and enter state 34
+	%eof           reduce using rule 60
 
-	String         goto state 34
-	BinMap         goto state 35
-	ListBinMap     goto state 36
+	String         goto state 31
+	BinMap         goto state 32
+	ListBinMap     goto state 33
 
 State 16
 
 	%start_pListValue -> . ListValue                    (rule 16)
 
-	'false'        shift, and enter state 30
-	'true'         shift, and enter state 31
-	L_doubl        shift, and enter state 32
-	L_integ        shift, and enter state 33
-	%eof           reduce using rule 64
+	'false'        shift, and enter state 27
+	'true'         shift, and enter state 28
+	L_doubl        shift, and enter state 29
+	L_integ        shift, and enter state 30
+	%eof           reduce using rule 63
 
-	Double         goto state 26
-	Integer        goto state 27
-	Value          goto state 28
-	ListValue      goto state 29
+	Double         goto state 23
+	Integer        goto state 24
+	Value          goto state 25
+	ListValue      goto state 26
 
 State 17
 
 	%start_pListQuery -> . ListQuery                    (rule 17)
 
-	L_Ident        shift, and enter state 20
-	%eof           reduce using rule 67
+	L_Ident        shift, and enter state 19
+	%eof           reduce using rule 66
 
-	Ident          goto state 23
-	Query          goto state 24
-	ListQuery      goto state 25
+	Ident          goto state 20
+	Query          goto state 21
+	ListQuery      goto state 22
 
 State 18
 
-	%start_pListIdent -> . ListIdent                    (rule 18)
+	Ident -> . L_Ident                                  (rule 18)
 
-	L_Ident        shift, and enter state 20
-	%eof           reduce using rule 69
+	L_Ident        shift, and enter state 19
 
-	Ident          goto state 21
-	ListIdent      goto state 22
 
 State 19
 
-	Ident -> . L_Ident                                  (rule 19)
+	Ident -> L_Ident .                                  (rule 18)
 
-	L_Ident        shift, and enter state 20
+	L_integ        reduce using rule 18
 
 
 State 20
 
-	Ident -> L_Ident .                                  (rule 19)
+	Query -> Ident . DatasetId Budget '=' '(' ListQueryStep ')'    (rule 23)
 
-	','            reduce using rule 19
-	L_integ        reduce using rule 19
-	%eof           reduce using rule 19
+	L_integ        shift, and enter state 30
 
+	Integer        goto state 71
+	DatasetId      goto state 100
 
 State 21
 
-	ListIdent -> Ident .                                (rule 70)
-	ListIdent -> Ident . ',' ListIdent                  (rule 71)
+	ListQuery -> Query . ListQuery                      (rule 67)
 
-	','            shift, and enter state 104
-	%eof           reduce using rule 70
+	L_Ident        shift, and enter state 19
+	%eof           reduce using rule 66
 
+	Ident          goto state 20
+	Query          goto state 21
+	ListQuery      goto state 99
 
 State 22
-
-	%start_pListIdent -> ListIdent .                    (rule 18)
-
-	%eof           accept
-
-
-State 23
-
-	Query -> Ident . DatasetId Budget '=' '(' ListQueryStep ')'    (rule 24)
-
-	L_integ        shift, and enter state 33
-
-	Integer        goto state 74
-	DatasetId      goto state 103
-
-State 24
-
-	ListQuery -> Query . ListQuery                      (rule 68)
-
-	L_Ident        shift, and enter state 20
-	%eof           reduce using rule 67
-
-	Ident          goto state 23
-	Query          goto state 24
-	ListQuery      goto state 102
-
-State 25
 
 	%start_pListQuery -> ListQuery .                    (rule 17)
 
 	%eof           accept
 
 
-State 26
+State 23
 
-	Value -> Double .                                   (rule 47)
-
-	','            reduce using rule 47
-	']'            reduce using rule 47
-	%eof           reduce using rule 47
-
-
-State 27
-
-	Value -> Integer .                                  (rule 46)
+	Value -> Double .                                   (rule 46)
 
 	','            reduce using rule 46
 	']'            reduce using rule 46
 	%eof           reduce using rule 46
 
 
-State 28
+State 24
 
-	ListValue -> Value .                                (rule 65)
-	ListValue -> Value . ',' ListValue                  (rule 66)
-
-	','            shift, and enter state 101
-	']'            reduce using rule 65
-	%eof           reduce using rule 65
-
-
-State 29
-
-	%start_pListValue -> ListValue .                    (rule 16)
-
-	%eof           accept
-
-
-State 30
-
-	Value -> 'false' .                                  (rule 45)
+	Value -> Integer .                                  (rule 45)
 
 	','            reduce using rule 45
 	']'            reduce using rule 45
 	%eof           reduce using rule 45
 
 
-State 31
+State 25
 
-	Value -> 'true' .                                   (rule 44)
+	ListValue -> Value .                                (rule 64)
+	ListValue -> Value . ',' ListValue                  (rule 65)
+
+	','            shift, and enter state 98
+	']'            reduce using rule 64
+	%eof           reduce using rule 64
+
+
+State 26
+
+	%start_pListValue -> ListValue .                    (rule 16)
+
+	%eof           accept
+
+
+State 27
+
+	Value -> 'false' .                                  (rule 44)
 
 	','            reduce using rule 44
 	']'            reduce using rule 44
 	%eof           reduce using rule 44
 
 
-State 32
+State 28
 
-	Double -> L_doubl .                                 (rule 20)
-
-	','            reduce using rule 20
-	';'            reduce using rule 20
-	'='            reduce using rule 20
-	']'            reduce using rule 20
-	L_doubl        reduce using rule 20
-	%eof           reduce using rule 20
-
-
-State 33
-
-	Integer -> L_integ .                                (rule 21)
-
-	','            reduce using rule 21
-	']'            reduce using rule 21
-	L_doubl        reduce using rule 21
-	L_integ        reduce using rule 21
-	%eof           reduce using rule 21
-
-
-State 34
-
-	BinMap -> String . '[' ListValue ']'                (rule 51)
-
-	'['            shift, and enter state 100
-
-
-State 35
-
-	ListBinMap -> BinMap .                              (rule 62)
-	ListBinMap -> BinMap . ',' ListBinMap               (rule 63)
-
-	','            shift, and enter state 99
-	']'            reduce using rule 62
-	%eof           reduce using rule 62
-
-
-State 36
-
-	%start_pListBinMap -> ListBinMap .                  (rule 15)
-
-	%eof           accept
-
-
-State 37
-
-	String -> L_quoted .                                (rule 22)
-
-	','            reduce using rule 22
-	'Bool'         reduce using rule 22
-	'Double'       reduce using rule 22
-	'Enum'         reduce using rule 22
-	'Gauss'        reduce using rule 22
-	'Int'          reduce using rule 22
-	'Laplace'      reduce using rule 22
-	'Text'         reduce using rule 22
-	'['            reduce using rule 22
-	']'            reduce using rule 22
-	%eof           reduce using rule 22
-
-
-State 38
-
-	ColumnSchema -> String . DataType                   (rule 52)
-
-	'Bool'         shift, and enter state 64
-	'Double'       shift, and enter state 65
-	'Enum'         shift, and enter state 66
-	'Int'          shift, and enter state 67
-	'Text'         shift, and enter state 68
-
-	DataType       goto state 98
-
-State 39
-
-	ListColumnSchema -> ColumnSchema .                  (rule 59)
-	ListColumnSchema -> ColumnSchema . ',' ListColumnSchema    (rule 60)
-
-	','            shift, and enter state 97
-	']'            reduce using rule 59
-	%eof           reduce using rule 59
-
-
-State 40
-
-	%start_pListColumnSchema -> ListColumnSchema .      (rule 14)
-
-	%eof           accept
-
-
-State 41
-
-	ListString -> String .                              (rule 56)
-	ListString -> String . ',' ListString               (rule 57)
-
-	','            shift, and enter state 96
-	']'            reduce using rule 56
-	%eof           reduce using rule 56
-
-
-State 42
-
-	%start_pListString -> ListString .                  (rule 13)
-
-	%eof           accept
-
-
-State 43
-
-	ListQueryStep -> QueryStep . ';' ListQueryStep      (rule 54)
-
-	';'            shift, and enter state 95
-
-
-State 44
-
-	%start_pListQueryStep -> ListQueryStep .            (rule 12)
-
-	%eof           accept
-
-
-State 45
-
-	QueryStep -> 'BIN' . '[' ListBinMap ']'             (rule 33)
-
-	'['            shift, and enter state 94
-
-
-State 46
-
-	QueryStep -> 'COUNT' . MParam                       (rule 34)
-
-	L_quoted       shift, and enter state 37
-
-	String         goto state 60
-	MParam         goto state 93
-
-State 47
-
-	QueryStep -> 'FILTER' . StringList                  (rule 31)
-
-	'['            shift, and enter state 71
-
-	StringList     goto state 92
-
-State 48
-
-	QueryStep -> 'MAP' . String '[' ListColumnSchema ']'    (rule 32)
-
-	L_quoted       shift, and enter state 37
-
-	String         goto state 91
-
-State 49
-
-	QueryStep -> 'MAX' . MParam                         (rule 36)
-
-	L_quoted       shift, and enter state 37
-
-	String         goto state 60
-	MParam         goto state 90
-
-State 50
-
-	QueryStep -> 'MEAN' . MParam                        (rule 38)
-
-	L_quoted       shift, and enter state 37
-
-	String         goto state 60
-	MParam         goto state 89
-
-State 51
-
-	QueryStep -> 'MIN' . MParam                         (rule 35)
-
-	L_quoted       shift, and enter state 37
-
-	String         goto state 60
-	MParam         goto state 88
-
-State 52
-
-	QueryStep -> 'RENAME' . StringList 'TO' StringList    (rule 30)
-
-	'['            shift, and enter state 71
-
-	StringList     goto state 87
-
-State 53
-
-	QueryStep -> 'SELECT' . StringList                  (rule 29)
-
-	'['            shift, and enter state 71
-
-	StringList     goto state 86
-
-State 54
-
-	QueryStep -> 'SUM' . MParam                         (rule 37)
-
-	L_quoted       shift, and enter state 37
-
-	String         goto state 60
-	MParam         goto state 85
-
-State 55
-
-	%start_pColumnSchema -> ColumnSchema .              (rule 11)
-
-	%eof           accept
-
-
-State 56
-
-	%start_pBinMap -> BinMap .                          (rule 10)
-
-	%eof           accept
-
-
-State 57
-
-	%start_pNoiseM -> NoiseM .                          (rule 9)
-
-	%eof           accept
-
-
-State 58
-
-	NoiseM -> 'Gauss' .                                 (rule 49)
-
-	L_doubl        reduce using rule 49
-	%eof           reduce using rule 49
-
-
-State 59
-
-	NoiseM -> 'Laplace' .                               (rule 50)
-
-	L_doubl        reduce using rule 50
-	%eof           reduce using rule 50
-
-
-State 60
-
-	MParam -> String . NoiseM Budget                    (rule 48)
-
-	'Gauss'        shift, and enter state 58
-	'Laplace'      shift, and enter state 59
-
-	NoiseM         goto state 84
-
-State 61
-
-	%start_pMParam -> MParam .                          (rule 8)
-
-	%eof           accept
-
-
-State 62
-
-	%start_pValue -> Value .                            (rule 7)
-
-	%eof           accept
-
-
-State 63
-
-	%start_pDataType -> DataType .                      (rule 6)
-
-	%eof           accept
-
-
-State 64
-
-	DataType -> 'Bool' .                                (rule 39)
-
-	','            reduce using rule 39
-	']'            reduce using rule 39
-	%eof           reduce using rule 39
-
-
-State 65
-
-	DataType -> 'Double' . Double Double                (rule 41)
-
-	L_doubl        shift, and enter state 32
-
-	Double         goto state 83
-
-State 66
-
-	DataType -> 'Enum' . StringList                     (rule 43)
-
-	'['            shift, and enter state 71
-
-	StringList     goto state 82
-
-State 67
-
-	DataType -> 'Int' . Integer Integer                 (rule 40)
-
-	L_integ        shift, and enter state 33
-
-	Integer        goto state 81
-
-State 68
-
-	DataType -> 'Text' .                                (rule 42)
-
-	','            reduce using rule 42
-	']'            reduce using rule 42
-	%eof           reduce using rule 42
-
-
-State 69
-
-	%start_pQueryStep -> QueryStep .                    (rule 5)
-
-	%eof           accept
-
-
-State 70
-
-	%start_pStringList -> StringList .                  (rule 4)
-
-	%eof           accept
-
-
-State 71
-
-	StringList -> '[' . ListString ']'                  (rule 28)
-
-	']'            reduce using rule 55
-	L_quoted       shift, and enter state 37
-
-	String         goto state 41
-	ListString     goto state 80
-
-State 72
-
-	Budget -> Double .                                  (rule 26)
-	Budget -> Double . Double                           (rule 27)
-
-	';'            reduce using rule 26
-	'='            reduce using rule 26
-	L_doubl        shift, and enter state 32
-	%eof           reduce using rule 26
-
-	Double         goto state 79
-
-State 73
-
-	%start_pBudget -> Budget .                          (rule 3)
-
-	%eof           accept
-
-
-State 74
-
-	DatasetId -> Integer .                              (rule 25)
-
-	L_doubl        reduce using rule 25
-	%eof           reduce using rule 25
-
-
-State 75
-
-	%start_pDatasetId -> DatasetId .                    (rule 2)
-
-	%eof           accept
-
-
-State 76
-
-	%start_pQuery -> Query .                            (rule 1)
-
-	%eof           accept
-
-
-State 77
-
-	%start_pProg -> Prog .                              (rule 0)
-
-	%eof           accept
-
-
-State 78
-
-	Prog -> ListQuery .                                 (rule 23)
-
-	%eof           reduce using rule 23
-
-
-State 79
-
-	Budget -> Double Double .                           (rule 27)
-
-	';'            reduce using rule 27
-	'='            reduce using rule 27
-	%eof           reduce using rule 27
-
-
-State 80
-
-	StringList -> '[' ListString . ']'                  (rule 28)
-
-	']'            shift, and enter state 119
-
-
-State 81
-
-	DataType -> 'Int' Integer . Integer                 (rule 40)
-
-	L_integ        shift, and enter state 33
-
-	Integer        goto state 118
-
-State 82
-
-	DataType -> 'Enum' StringList .                     (rule 43)
+	Value -> 'true' .                                   (rule 43)
 
 	','            reduce using rule 43
 	']'            reduce using rule 43
 	%eof           reduce using rule 43
 
 
-State 83
+State 29
 
-	DataType -> 'Double' Double . Double                (rule 41)
+	Double -> L_doubl .                                 (rule 19)
 
-	L_doubl        shift, and enter state 32
-
-	Double         goto state 117
-
-State 84
-
-	MParam -> String NoiseM . Budget                    (rule 48)
-
-	L_doubl        shift, and enter state 32
-
-	Double         goto state 72
-	Budget         goto state 116
-
-State 85
-
-	QueryStep -> 'SUM' MParam .                         (rule 37)
-
-	';'            reduce using rule 37
-	%eof           reduce using rule 37
+	','            reduce using rule 19
+	';'            reduce using rule 19
+	'='            reduce using rule 19
+	']'            reduce using rule 19
+	L_doubl        reduce using rule 19
+	%eof           reduce using rule 19
 
 
-State 86
+State 30
 
-	QueryStep -> 'SELECT' StringList .                  (rule 29)
+	Integer -> L_integ .                                (rule 20)
 
-	';'            reduce using rule 29
-	%eof           reduce using rule 29
-
-
-State 87
-
-	QueryStep -> 'RENAME' StringList . 'TO' StringList    (rule 30)
-
-	'TO'           shift, and enter state 115
+	','            reduce using rule 20
+	']'            reduce using rule 20
+	L_doubl        reduce using rule 20
+	L_integ        reduce using rule 20
+	%eof           reduce using rule 20
 
 
-State 88
+State 31
 
-	QueryStep -> 'MIN' MParam .                         (rule 35)
+	BinMap -> String . '[' ListValue ']'                (rule 50)
 
-	';'            reduce using rule 35
-	%eof           reduce using rule 35
-
-
-State 89
-
-	QueryStep -> 'MEAN' MParam .                        (rule 38)
-
-	';'            reduce using rule 38
-	%eof           reduce using rule 38
+	'['            shift, and enter state 97
 
 
-State 90
+State 32
 
-	QueryStep -> 'MAX' MParam .                         (rule 36)
+	ListBinMap -> BinMap .                              (rule 61)
+	ListBinMap -> BinMap . ',' ListBinMap               (rule 62)
 
-	';'            reduce using rule 36
-	%eof           reduce using rule 36
-
-
-State 91
-
-	QueryStep -> 'MAP' String . '[' ListColumnSchema ']'    (rule 32)
-
-	'['            shift, and enter state 114
-
-
-State 92
-
-	QueryStep -> 'FILTER' StringList .                  (rule 31)
-
-	';'            reduce using rule 31
-	%eof           reduce using rule 31
-
-
-State 93
-
-	QueryStep -> 'COUNT' MParam .                       (rule 34)
-
-	';'            reduce using rule 34
-	%eof           reduce using rule 34
-
-
-State 94
-
-	QueryStep -> 'BIN' '[' . ListBinMap ']'             (rule 33)
-
+	','            shift, and enter state 96
 	']'            reduce using rule 61
-	L_quoted       shift, and enter state 37
-
-	String         goto state 34
-	BinMap         goto state 35
-	ListBinMap     goto state 113
-
-State 95
-
-	ListQueryStep -> QueryStep ';' . ListQueryStep      (rule 54)
-
-	')'            reduce using rule 53
-	'BIN'          shift, and enter state 45
-	'COUNT'        shift, and enter state 46
-	'FILTER'       shift, and enter state 47
-	'MAP'          shift, and enter state 48
-	'MAX'          shift, and enter state 49
-	'MEAN'         shift, and enter state 50
-	'MIN'          shift, and enter state 51
-	'RENAME'       shift, and enter state 52
-	'SELECT'       shift, and enter state 53
-	'SUM'          shift, and enter state 54
-	%eof           reduce using rule 53
-
-	QueryStep      goto state 43
-	ListQueryStep  goto state 112
-
-State 96
-
-	ListString -> String ',' . ListString               (rule 57)
-
-	']'            reduce using rule 55
-	L_quoted       shift, and enter state 37
-	%eof           reduce using rule 55
-
-	String         goto state 41
-	ListString     goto state 111
-
-State 97
-
-	ListColumnSchema -> ColumnSchema ',' . ListColumnSchema    (rule 60)
-
-	']'            reduce using rule 58
-	L_quoted       shift, and enter state 37
-	%eof           reduce using rule 58
-
-	String         goto state 38
-	ColumnSchema   goto state 39
-	ListColumnSchemagoto state 110
-
-State 98
-
-	ColumnSchema -> String DataType .                   (rule 52)
-
-	','            reduce using rule 52
-	']'            reduce using rule 52
-	%eof           reduce using rule 52
-
-
-State 99
-
-	ListBinMap -> BinMap ',' . ListBinMap               (rule 63)
-
-	']'            reduce using rule 61
-	L_quoted       shift, and enter state 37
 	%eof           reduce using rule 61
 
-	String         goto state 34
-	BinMap         goto state 35
-	ListBinMap     goto state 109
 
-State 100
+State 33
 
-	BinMap -> String '[' . ListValue ']'                (rule 51)
+	%start_pListBinMap -> ListBinMap .                  (rule 15)
 
-	']'            reduce using rule 64
-	'false'        shift, and enter state 30
-	'true'         shift, and enter state 31
-	L_doubl        shift, and enter state 32
-	L_integ        shift, and enter state 33
-
-	Double         goto state 26
-	Integer        goto state 27
-	Value          goto state 28
-	ListValue      goto state 108
-
-State 101
-
-	ListValue -> Value ',' . ListValue                  (rule 66)
-
-	']'            reduce using rule 64
-	'false'        shift, and enter state 30
-	'true'         shift, and enter state 31
-	L_doubl        shift, and enter state 32
-	L_integ        shift, and enter state 33
-	%eof           reduce using rule 64
-
-	Double         goto state 26
-	Integer        goto state 27
-	Value          goto state 28
-	ListValue      goto state 107
-
-State 102
-
-	ListQuery -> Query ListQuery .                      (rule 68)
-
-	%eof           reduce using rule 68
+	%eof           accept
 
 
-State 103
+State 34
 
-	Query -> Ident DatasetId . Budget '=' '(' ListQueryStep ')'    (rule 24)
+	String -> L_quoted .                                (rule 21)
 
-	L_doubl        shift, and enter state 32
-
-	Double         goto state 72
-	Budget         goto state 106
-
-State 104
-
-	ListIdent -> Ident ',' . ListIdent                  (rule 71)
-
-	L_Ident        shift, and enter state 20
-	%eof           reduce using rule 69
-
-	Ident          goto state 21
-	ListIdent      goto state 105
-
-State 105
-
-	ListIdent -> Ident ',' ListIdent .                  (rule 71)
-
-	%eof           reduce using rule 71
+	','            reduce using rule 21
+	'Bool'         reduce using rule 21
+	'Double'       reduce using rule 21
+	'Enum'         reduce using rule 21
+	'Gauss'        reduce using rule 21
+	'Int'          reduce using rule 21
+	'Laplace'      reduce using rule 21
+	'Text'         reduce using rule 21
+	'['            reduce using rule 21
+	']'            reduce using rule 21
+	%eof           reduce using rule 21
 
 
-State 106
+State 35
 
-	Query -> Ident DatasetId Budget . '=' '(' ListQueryStep ')'    (rule 24)
+	ColumnSchema -> String . DataType                   (rule 51)
 
-	'='            shift, and enter state 124
+	'Bool'         shift, and enter state 61
+	'Double'       shift, and enter state 62
+	'Enum'         shift, and enter state 63
+	'Int'          shift, and enter state 64
+	'Text'         shift, and enter state 65
 
+	DataType       goto state 95
 
-State 107
+State 36
 
-	ListValue -> Value ',' ListValue .                  (rule 66)
+	ListColumnSchema -> ColumnSchema .                  (rule 58)
+	ListColumnSchema -> ColumnSchema . ',' ListColumnSchema    (rule 59)
 
-	']'            reduce using rule 66
-	%eof           reduce using rule 66
-
-
-State 108
-
-	BinMap -> String '[' ListValue . ']'                (rule 51)
-
-	']'            shift, and enter state 123
-
-
-State 109
-
-	ListBinMap -> BinMap ',' ListBinMap .               (rule 63)
-
-	']'            reduce using rule 63
-	%eof           reduce using rule 63
-
-
-State 110
-
-	ListColumnSchema -> ColumnSchema ',' ListColumnSchema .    (rule 60)
-
-	']'            reduce using rule 60
-	%eof           reduce using rule 60
-
-
-State 111
-
-	ListString -> String ',' ListString .               (rule 57)
-
-	']'            reduce using rule 57
-	%eof           reduce using rule 57
-
-
-State 112
-
-	ListQueryStep -> QueryStep ';' ListQueryStep .      (rule 54)
-
-	')'            reduce using rule 54
-	%eof           reduce using rule 54
-
-
-State 113
-
-	QueryStep -> 'BIN' '[' ListBinMap . ']'             (rule 33)
-
-	']'            shift, and enter state 122
-
-
-State 114
-
-	QueryStep -> 'MAP' String '[' . ListColumnSchema ']'    (rule 32)
-
+	','            shift, and enter state 94
 	']'            reduce using rule 58
-	L_quoted       shift, and enter state 37
+	%eof           reduce using rule 58
 
-	String         goto state 38
-	ColumnSchema   goto state 39
-	ListColumnSchemagoto state 121
 
-State 115
+State 37
 
-	QueryStep -> 'RENAME' StringList 'TO' . StringList    (rule 30)
+	%start_pListColumnSchema -> ListColumnSchema .      (rule 14)
 
-	'['            shift, and enter state 71
+	%eof           accept
 
-	StringList     goto state 120
 
-State 116
+State 38
 
-	MParam -> String NoiseM Budget .                    (rule 48)
+	ListString -> String .                              (rule 55)
+	ListString -> String . ',' ListString               (rule 56)
 
-	';'            reduce using rule 48
+	','            shift, and enter state 93
+	']'            reduce using rule 55
+	%eof           reduce using rule 55
+
+
+State 39
+
+	%start_pListString -> ListString .                  (rule 13)
+
+	%eof           accept
+
+
+State 40
+
+	ListQueryStep -> QueryStep . ';' ListQueryStep      (rule 53)
+
+	';'            shift, and enter state 92
+
+
+State 41
+
+	%start_pListQueryStep -> ListQueryStep .            (rule 12)
+
+	%eof           accept
+
+
+State 42
+
+	QueryStep -> 'BIN' . '[' ListBinMap ']'             (rule 32)
+
+	'['            shift, and enter state 91
+
+
+State 43
+
+	QueryStep -> 'COUNT' . MParam                       (rule 33)
+
+	L_quoted       shift, and enter state 34
+
+	String         goto state 57
+	MParam         goto state 90
+
+State 44
+
+	QueryStep -> 'FILTER' . StringList                  (rule 30)
+
+	'['            shift, and enter state 68
+
+	StringList     goto state 89
+
+State 45
+
+	QueryStep -> 'MAP' . String '[' ListColumnSchema ']'    (rule 31)
+
+	L_quoted       shift, and enter state 34
+
+	String         goto state 88
+
+State 46
+
+	QueryStep -> 'MAX' . MParam                         (rule 35)
+
+	L_quoted       shift, and enter state 34
+
+	String         goto state 57
+	MParam         goto state 87
+
+State 47
+
+	QueryStep -> 'MEAN' . MParam                        (rule 37)
+
+	L_quoted       shift, and enter state 34
+
+	String         goto state 57
+	MParam         goto state 86
+
+State 48
+
+	QueryStep -> 'MIN' . MParam                         (rule 34)
+
+	L_quoted       shift, and enter state 34
+
+	String         goto state 57
+	MParam         goto state 85
+
+State 49
+
+	QueryStep -> 'RENAME' . StringList 'TO' StringList    (rule 29)
+
+	'['            shift, and enter state 68
+
+	StringList     goto state 84
+
+State 50
+
+	QueryStep -> 'SELECT' . StringList                  (rule 28)
+
+	'['            shift, and enter state 68
+
+	StringList     goto state 83
+
+State 51
+
+	QueryStep -> 'SUM' . MParam                         (rule 36)
+
+	L_quoted       shift, and enter state 34
+
+	String         goto state 57
+	MParam         goto state 82
+
+State 52
+
+	%start_pColumnSchema -> ColumnSchema .              (rule 11)
+
+	%eof           accept
+
+
+State 53
+
+	%start_pBinMap -> BinMap .                          (rule 10)
+
+	%eof           accept
+
+
+State 54
+
+	%start_pNoiseM -> NoiseM .                          (rule 9)
+
+	%eof           accept
+
+
+State 55
+
+	NoiseM -> 'Gauss' .                                 (rule 48)
+
+	L_doubl        reduce using rule 48
 	%eof           reduce using rule 48
 
 
-State 117
+State 56
 
-	DataType -> 'Double' Double Double .                (rule 41)
+	NoiseM -> 'Laplace' .                               (rule 49)
+
+	L_doubl        reduce using rule 49
+	%eof           reduce using rule 49
+
+
+State 57
+
+	MParam -> String . NoiseM Budget                    (rule 47)
+
+	'Gauss'        shift, and enter state 55
+	'Laplace'      shift, and enter state 56
+
+	NoiseM         goto state 81
+
+State 58
+
+	%start_pMParam -> MParam .                          (rule 8)
+
+	%eof           accept
+
+
+State 59
+
+	%start_pValue -> Value .                            (rule 7)
+
+	%eof           accept
+
+
+State 60
+
+	%start_pDataType -> DataType .                      (rule 6)
+
+	%eof           accept
+
+
+State 61
+
+	DataType -> 'Bool' .                                (rule 38)
+
+	','            reduce using rule 38
+	']'            reduce using rule 38
+	%eof           reduce using rule 38
+
+
+State 62
+
+	DataType -> 'Double' . Double Double                (rule 40)
+
+	L_doubl        shift, and enter state 29
+
+	Double         goto state 80
+
+State 63
+
+	DataType -> 'Enum' . StringList                     (rule 42)
+
+	'['            shift, and enter state 68
+
+	StringList     goto state 79
+
+State 64
+
+	DataType -> 'Int' . Integer Integer                 (rule 39)
+
+	L_integ        shift, and enter state 30
+
+	Integer        goto state 78
+
+State 65
+
+	DataType -> 'Text' .                                (rule 41)
 
 	','            reduce using rule 41
 	']'            reduce using rule 41
 	%eof           reduce using rule 41
 
 
-State 118
+State 66
 
-	DataType -> 'Int' Integer Integer .                 (rule 40)
+	%start_pQueryStep -> QueryStep .                    (rule 5)
 
-	','            reduce using rule 40
-	']'            reduce using rule 40
-	%eof           reduce using rule 40
+	%eof           accept
 
 
-State 119
+State 67
 
-	StringList -> '[' ListString ']' .                  (rule 28)
+	%start_pStringList -> StringList .                  (rule 4)
 
-	','            reduce using rule 28
+	%eof           accept
+
+
+State 68
+
+	StringList -> '[' . ListString ']'                  (rule 27)
+
+	']'            reduce using rule 54
+	L_quoted       shift, and enter state 34
+
+	String         goto state 38
+	ListString     goto state 77
+
+State 69
+
+	Budget -> Double .                                  (rule 25)
+	Budget -> Double . Double                           (rule 26)
+
+	';'            reduce using rule 25
+	'='            reduce using rule 25
+	L_doubl        shift, and enter state 29
+	%eof           reduce using rule 25
+
+	Double         goto state 76
+
+State 70
+
+	%start_pBudget -> Budget .                          (rule 3)
+
+	%eof           accept
+
+
+State 71
+
+	DatasetId -> Integer .                              (rule 24)
+
+	L_doubl        reduce using rule 24
+	%eof           reduce using rule 24
+
+
+State 72
+
+	%start_pDatasetId -> DatasetId .                    (rule 2)
+
+	%eof           accept
+
+
+State 73
+
+	%start_pQuery -> Query .                            (rule 1)
+
+	%eof           accept
+
+
+State 74
+
+	%start_pProg -> Prog .                              (rule 0)
+
+	%eof           accept
+
+
+State 75
+
+	Prog -> ListQuery .                                 (rule 22)
+
+	%eof           reduce using rule 22
+
+
+State 76
+
+	Budget -> Double Double .                           (rule 26)
+
+	';'            reduce using rule 26
+	'='            reduce using rule 26
+	%eof           reduce using rule 26
+
+
+State 77
+
+	StringList -> '[' ListString . ']'                  (rule 27)
+
+	']'            shift, and enter state 114
+
+
+State 78
+
+	DataType -> 'Int' Integer . Integer                 (rule 39)
+
+	L_integ        shift, and enter state 30
+
+	Integer        goto state 113
+
+State 79
+
+	DataType -> 'Enum' StringList .                     (rule 42)
+
+	','            reduce using rule 42
+	']'            reduce using rule 42
+	%eof           reduce using rule 42
+
+
+State 80
+
+	DataType -> 'Double' Double . Double                (rule 40)
+
+	L_doubl        shift, and enter state 29
+
+	Double         goto state 112
+
+State 81
+
+	MParam -> String NoiseM . Budget                    (rule 47)
+
+	L_doubl        shift, and enter state 29
+
+	Double         goto state 69
+	Budget         goto state 111
+
+State 82
+
+	QueryStep -> 'SUM' MParam .                         (rule 36)
+
+	';'            reduce using rule 36
+	%eof           reduce using rule 36
+
+
+State 83
+
+	QueryStep -> 'SELECT' StringList .                  (rule 28)
+
 	';'            reduce using rule 28
-	'TO'           reduce using rule 28
-	']'            reduce using rule 28
 	%eof           reduce using rule 28
 
 
-State 120
+State 84
 
-	QueryStep -> 'RENAME' StringList 'TO' StringList .    (rule 30)
+	QueryStep -> 'RENAME' StringList . 'TO' StringList    (rule 29)
+
+	'TO'           shift, and enter state 110
+
+
+State 85
+
+	QueryStep -> 'MIN' MParam .                         (rule 34)
+
+	';'            reduce using rule 34
+	%eof           reduce using rule 34
+
+
+State 86
+
+	QueryStep -> 'MEAN' MParam .                        (rule 37)
+
+	';'            reduce using rule 37
+	%eof           reduce using rule 37
+
+
+State 87
+
+	QueryStep -> 'MAX' MParam .                         (rule 35)
+
+	';'            reduce using rule 35
+	%eof           reduce using rule 35
+
+
+State 88
+
+	QueryStep -> 'MAP' String . '[' ListColumnSchema ']'    (rule 31)
+
+	'['            shift, and enter state 109
+
+
+State 89
+
+	QueryStep -> 'FILTER' StringList .                  (rule 30)
 
 	';'            reduce using rule 30
 	%eof           reduce using rule 30
 
 
-State 121
+State 90
 
-	QueryStep -> 'MAP' String '[' ListColumnSchema . ']'    (rule 32)
-
-	']'            shift, and enter state 126
-
-
-State 122
-
-	QueryStep -> 'BIN' '[' ListBinMap ']' .             (rule 33)
+	QueryStep -> 'COUNT' MParam .                       (rule 33)
 
 	';'            reduce using rule 33
 	%eof           reduce using rule 33
 
 
-State 123
+State 91
 
-	BinMap -> String '[' ListValue ']' .                (rule 51)
+	QueryStep -> 'BIN' '[' . ListBinMap ']'             (rule 32)
+
+	']'            reduce using rule 60
+	L_quoted       shift, and enter state 34
+
+	String         goto state 31
+	BinMap         goto state 32
+	ListBinMap     goto state 108
+
+State 92
+
+	ListQueryStep -> QueryStep ';' . ListQueryStep      (rule 53)
+
+	')'            reduce using rule 52
+	'BIN'          shift, and enter state 42
+	'COUNT'        shift, and enter state 43
+	'FILTER'       shift, and enter state 44
+	'MAP'          shift, and enter state 45
+	'MAX'          shift, and enter state 46
+	'MEAN'         shift, and enter state 47
+	'MIN'          shift, and enter state 48
+	'RENAME'       shift, and enter state 49
+	'SELECT'       shift, and enter state 50
+	'SUM'          shift, and enter state 51
+	%eof           reduce using rule 52
+
+	QueryStep      goto state 40
+	ListQueryStep  goto state 107
+
+State 93
+
+	ListString -> String ',' . ListString               (rule 56)
+
+	']'            reduce using rule 54
+	L_quoted       shift, and enter state 34
+	%eof           reduce using rule 54
+
+	String         goto state 38
+	ListString     goto state 106
+
+State 94
+
+	ListColumnSchema -> ColumnSchema ',' . ListColumnSchema    (rule 59)
+
+	']'            reduce using rule 57
+	L_quoted       shift, and enter state 34
+	%eof           reduce using rule 57
+
+	String         goto state 35
+	ColumnSchema   goto state 36
+	ListColumnSchemagoto state 105
+
+State 95
+
+	ColumnSchema -> String DataType .                   (rule 51)
 
 	','            reduce using rule 51
 	']'            reduce using rule 51
 	%eof           reduce using rule 51
 
 
-State 124
+State 96
 
-	Query -> Ident DatasetId Budget '=' . '(' ListQueryStep ')'    (rule 24)
+	ListBinMap -> BinMap ',' . ListBinMap               (rule 62)
 
-	'('            shift, and enter state 125
+	']'            reduce using rule 60
+	L_quoted       shift, and enter state 34
+	%eof           reduce using rule 60
+
+	String         goto state 31
+	BinMap         goto state 32
+	ListBinMap     goto state 104
+
+State 97
+
+	BinMap -> String '[' . ListValue ']'                (rule 50)
+
+	']'            reduce using rule 63
+	'false'        shift, and enter state 27
+	'true'         shift, and enter state 28
+	L_doubl        shift, and enter state 29
+	L_integ        shift, and enter state 30
+
+	Double         goto state 23
+	Integer        goto state 24
+	Value          goto state 25
+	ListValue      goto state 103
+
+State 98
+
+	ListValue -> Value ',' . ListValue                  (rule 65)
+
+	']'            reduce using rule 63
+	'false'        shift, and enter state 27
+	'true'         shift, and enter state 28
+	L_doubl        shift, and enter state 29
+	L_integ        shift, and enter state 30
+	%eof           reduce using rule 63
+
+	Double         goto state 23
+	Integer        goto state 24
+	Value          goto state 25
+	ListValue      goto state 102
+
+State 99
+
+	ListQuery -> Query ListQuery .                      (rule 67)
+
+	%eof           reduce using rule 67
 
 
-State 125
+State 100
 
-	Query -> Ident DatasetId Budget '=' '(' . ListQueryStep ')'    (rule 24)
+	Query -> Ident DatasetId . Budget '=' '(' ListQueryStep ')'    (rule 23)
+
+	L_doubl        shift, and enter state 29
+
+	Double         goto state 69
+	Budget         goto state 101
+
+State 101
+
+	Query -> Ident DatasetId Budget . '=' '(' ListQueryStep ')'    (rule 23)
+
+	'='            shift, and enter state 119
+
+
+State 102
+
+	ListValue -> Value ',' ListValue .                  (rule 65)
+
+	']'            reduce using rule 65
+	%eof           reduce using rule 65
+
+
+State 103
+
+	BinMap -> String '[' ListValue . ']'                (rule 50)
+
+	']'            shift, and enter state 118
+
+
+State 104
+
+	ListBinMap -> BinMap ',' ListBinMap .               (rule 62)
+
+	']'            reduce using rule 62
+	%eof           reduce using rule 62
+
+
+State 105
+
+	ListColumnSchema -> ColumnSchema ',' ListColumnSchema .    (rule 59)
+
+	']'            reduce using rule 59
+	%eof           reduce using rule 59
+
+
+State 106
+
+	ListString -> String ',' ListString .               (rule 56)
+
+	']'            reduce using rule 56
+	%eof           reduce using rule 56
+
+
+State 107
+
+	ListQueryStep -> QueryStep ';' ListQueryStep .      (rule 53)
 
 	')'            reduce using rule 53
-	'BIN'          shift, and enter state 45
-	'COUNT'        shift, and enter state 46
-	'FILTER'       shift, and enter state 47
-	'MAP'          shift, and enter state 48
-	'MAX'          shift, and enter state 49
-	'MEAN'         shift, and enter state 50
-	'MIN'          shift, and enter state 51
-	'RENAME'       shift, and enter state 52
-	'SELECT'       shift, and enter state 53
-	'SUM'          shift, and enter state 54
+	%eof           reduce using rule 53
 
-	QueryStep      goto state 43
-	ListQueryStep  goto state 127
 
-State 126
+State 108
 
-	QueryStep -> 'MAP' String '[' ListColumnSchema ']' .    (rule 32)
+	QueryStep -> 'BIN' '[' ListBinMap . ']'             (rule 32)
+
+	']'            shift, and enter state 117
+
+
+State 109
+
+	QueryStep -> 'MAP' String '[' . ListColumnSchema ']'    (rule 31)
+
+	']'            reduce using rule 57
+	L_quoted       shift, and enter state 34
+
+	String         goto state 35
+	ColumnSchema   goto state 36
+	ListColumnSchemagoto state 116
+
+State 110
+
+	QueryStep -> 'RENAME' StringList 'TO' . StringList    (rule 29)
+
+	'['            shift, and enter state 68
+
+	StringList     goto state 115
+
+State 111
+
+	MParam -> String NoiseM Budget .                    (rule 47)
+
+	';'            reduce using rule 47
+	%eof           reduce using rule 47
+
+
+State 112
+
+	DataType -> 'Double' Double Double .                (rule 40)
+
+	','            reduce using rule 40
+	']'            reduce using rule 40
+	%eof           reduce using rule 40
+
+
+State 113
+
+	DataType -> 'Int' Integer Integer .                 (rule 39)
+
+	','            reduce using rule 39
+	']'            reduce using rule 39
+	%eof           reduce using rule 39
+
+
+State 114
+
+	StringList -> '[' ListString ']' .                  (rule 27)
+
+	','            reduce using rule 27
+	';'            reduce using rule 27
+	'TO'           reduce using rule 27
+	']'            reduce using rule 27
+	%eof           reduce using rule 27
+
+
+State 115
+
+	QueryStep -> 'RENAME' StringList 'TO' StringList .    (rule 29)
+
+	';'            reduce using rule 29
+	%eof           reduce using rule 29
+
+
+State 116
+
+	QueryStep -> 'MAP' String '[' ListColumnSchema . ']'    (rule 31)
+
+	']'            shift, and enter state 121
+
+
+State 117
+
+	QueryStep -> 'BIN' '[' ListBinMap ']' .             (rule 32)
 
 	';'            reduce using rule 32
 	%eof           reduce using rule 32
 
 
-State 127
+State 118
 
-	Query -> Ident DatasetId Budget '=' '(' ListQueryStep . ')'    (rule 24)
+	BinMap -> String '[' ListValue ']' .                (rule 50)
 
-	')'            shift, and enter state 128
+	','            reduce using rule 50
+	']'            reduce using rule 50
+	%eof           reduce using rule 50
 
 
-State 128
+State 119
 
-	Query -> Ident DatasetId Budget '=' '(' ListQueryStep ')' .    (rule 24)
+	Query -> Ident DatasetId Budget '=' . '(' ListQueryStep ')'    (rule 23)
 
-	L_Ident        reduce using rule 24
-	%eof           reduce using rule 24
+	'('            shift, and enter state 120
+
+
+State 120
+
+	Query -> Ident DatasetId Budget '=' '(' . ListQueryStep ')'    (rule 23)
+
+	')'            reduce using rule 52
+	'BIN'          shift, and enter state 42
+	'COUNT'        shift, and enter state 43
+	'FILTER'       shift, and enter state 44
+	'MAP'          shift, and enter state 45
+	'MAX'          shift, and enter state 46
+	'MEAN'         shift, and enter state 47
+	'MIN'          shift, and enter state 48
+	'RENAME'       shift, and enter state 49
+	'SELECT'       shift, and enter state 50
+	'SUM'          shift, and enter state 51
+
+	QueryStep      goto state 40
+	ListQueryStep  goto state 122
+
+State 121
+
+	QueryStep -> 'MAP' String '[' ListColumnSchema ']' .    (rule 31)
+
+	';'            reduce using rule 31
+	%eof           reduce using rule 31
+
+
+State 122
+
+	Query -> Ident DatasetId Budget '=' '(' ListQueryStep . ')'    (rule 23)
+
+	')'            shift, and enter state 123
+
+
+State 123
+
+	Query -> Ident DatasetId Budget '=' '(' ListQueryStep ')' .    (rule 23)
+
+	L_Ident        reduce using rule 23
+	%eof           reduce using rule 23
 
 
 -----------------------------------------------------------------------------
 Grammar Totals
 -----------------------------------------------------------------------------
-Number of rules: 72
+Number of rules: 68
 Number of terminals: 31
-Number of non-terminals: 42
-Number of states: 129
+Number of non-terminals: 40
+Number of states: 124

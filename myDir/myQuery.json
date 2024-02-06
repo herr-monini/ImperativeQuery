@@ -1,1 +1,0 @@
-{"budget":{"epsilon":0.2},"dataset":12345,"query":[{"select":["foo1"]},{"rename":{"foo":"baz"}}]}

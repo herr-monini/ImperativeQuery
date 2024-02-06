@@ -1,6 +1,23 @@
 
 # Imperative Query
 
+## Contents
+- [About](#about)
+- [Disclaimer](#disclaimer)
+- [Syntax](#syntax)
+    * [Examples](#examples)
+    * [SELECT](#select)
+    * [RENAME](#rename)
+    * [FILTER](#filter) 
+    * [MAP](#map) 
+    * [BIN](#bin) 
+    * [COUNT](#count) 
+    * [MIN](#min) 
+    * [MAX](#max) 
+    * [SUM](#sum) 
+    * [MEAN](#mean)
+- [Compilation](#compilation)
+    
 ## About 
 Imperative Query is a small DSL, whose aim is to make it easier to create compiled queries for the [WebDP API](https://github.com/dpella/WebDP/tree/main). The queries are written in `.iq` files, and are compiled to `.json` files that adhere to the [query WebDP API](https://editor.swagger.io/?url=https://webdp.dev/api/WebDP-1.0.0.yml). 
 
@@ -8,7 +25,11 @@ Imperative Query is a small DSL, whose aim is to make it easier to create compil
 ## Disclaimer 
 There is no validation done of the queries themselves. Imperative Query is simply a mean to write the `.json` queries faster and with fewer errors. If the syntactical rules of Imperative Query are followed, then a valid `.json` will be created. The contents of the `.json` may be rejected by the WebDP backend. 
 
+Use this library at your own peril: the author takes no responsibilty for *anything that is bad for you*.
+
 ## Syntax
+### Examples 
+See the [example file](testprog.iq) for examples.
 
 ### Query
 An Imperative Query program is defined as a list of queries. Each query is written on the form:
@@ -156,6 +177,11 @@ Double
 // approx budget (epsilon, delta)
 Double Double
 ```
+
+#### Comments
+Single line comments `//`
+
+Multi-line comments `/* comment */`
 
 ## Compilation
 The `.iq` compiler takes 1 mandatory argument (path to `.iq`-file) and one optional (path to output directory). By default, the compiler will create a directory `out`. If the supplied directory doesn't exist, the compiler will create it and its parents. 

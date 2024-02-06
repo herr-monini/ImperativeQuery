@@ -232,8 +232,3 @@ instance Print [WebDPConv.Abs.Value] where
 instance Print [WebDPConv.Abs.Query] where
   prt _ [] = concatD []
   prt _ (x:xs) = concatD [prt 0 x, prt 0 xs]
-
-instance Print [WebDPConv.Abs.Ident] where
-  prt _ [] = concatD []
-  prt _ [x] = concatD [prt 0 x]
-  prt _ (x:xs) = concatD [prt 0 x, doc (showString ","), prt 0 xs]

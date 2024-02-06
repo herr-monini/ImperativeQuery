@@ -101,9 +101,6 @@ All other symbols are terminals.
   |  |  **|**  | //Value// ``,`` //[Value]//
   | //[Query]// | -> | **eps**
   |  |  **|**  | //Query// //[Query]//
-  | //[Ident]// | -> | **eps**
-  |  |  **|**  | //Ident//
-  |  |  **|**  | //Ident// ``,`` //[Ident]//
 
 
 

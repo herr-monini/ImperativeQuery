@@ -1,28 +1,46 @@
 
 
-// a query
-myQuery 12345 0.2 = (
-    SELECT ["foo1"];
-    RENAME ["foo"] TO ["baz"];
-) 
+// select query 
 
-/*
-    Another query
-*/
-myQuery2 12345 0.1 = (
-    SELECT ["foo"] ;
-    MAX "foo" Gauss 0.1;
+selectExample 1234 1.0 = (
+    SELECT ["foo", "bar"];
+    SELECT ["baz"];
 )
 
-// mapping 
-mappy 123 0.1 = (
-    MAP "{'baz': boo + baa}" ["baz" Int 1 25];
+// rename query 
+
+renameExample 1234 1.0 = (
+    RENAME ["foo", "bar"] TO ["newFoo", "newBar"];
 )
 
-// binning
-binner 123 1.0 = (
-    BIN [
-    "myColumn" [0, 5, 10, 15],
-    "myColumn2" [0.1, 0.2, 0.3]
+// filter query
+
+filterExample 1234 1.0 = (
+    FILTER ["foo == 69", "bar > 420"];
+)
+
+// map query 
+mapExample 1234 1.0 = (
+    MAP "{'baz': foo + bar}" [
+        "my column" Int 69 420,
+        "my second column" Bool
     ];
+)
+
+// bin query 
+binExample 1234 1.0 = (
+    BIN [
+        "bar column" [1.0, 2.0, 3.0, 4.0],
+        "hello-world" [10, 20]
+    ];
+)
+
+// aggregates
+aggregateExample 1234 1.0 = (
+    COUNT "my column" Gauss 0.5;
+    MAX "this column" Laplace 0.1 0.2;
+    MIN "x" Gauss 3.1415;
+    SUM "ssssum" Laplace 0.1;
+    MEAN "you're so mean" Gauss 0.1 1000.1;
+
 )
