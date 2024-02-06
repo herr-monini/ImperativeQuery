@@ -15,7 +15,8 @@ ApproxDP.   Budget ::= Double Double ;
 
 Slist. StringList ::= "[" [String] "]" ;
 
-QSelect. QueryStep ::= "SELECT" StringList ;
+
+QSelect. QueryStep ::= "SELECT" StringList;
 QRename. QueryStep ::= "RENAME" StringList "TO" StringList ;
 QFilter. QueryStep ::= "FILTER" StringList ;
 QMap.    QueryStep ::= "MAP" String "[" [ColumnSchema] "]";

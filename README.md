@@ -25,12 +25,12 @@ A QueryStep can be any of the following:
 * [RENAME](#rename)
 * [FILTER](#filter) 
 * [MAP](#map) 
-* BIN 
-* COUNT 
-* MIN 
-* MAX 
-* SUM 
-* MEAN
+* [BIN](#bin) 
+* [COUNT](#count) 
+* [MIN](#min) 
+* [MAX](#max) 
+* [SUM](#sum) 
+* [MEAN](#mean)
 
 And each QueryStep is terminated by a `;`. 
 
@@ -73,4 +73,26 @@ The syntactical rule for MAP is:
 ```
 MAP String [ColumnSchema];
 ```
-where the String is a function string
+where the String is a function string. (See [ColumnSchema](#column-schema))
+
+```
+MAP "{'baz': boo + baa}" ["baz" Int 1 25];
+```
+
+#### BIN
+The syntactical rule for binning is:
+```
+BIN [BinMap];
+```
+Where a BinMap is:
+```
+BinMap ::= ColumnName [Value]
+```
+for example:
+```
+BIN [
+    "myColumn" [0, 5, 10, 15],
+    "myColumn2" [0.1, 0.2, 0.3]
+    ];
+
+```

@@ -1,0 +1,1 @@
+{"budget":{"epsilon":1.0},"dataset":123,"query":[{"bin":[{"myColumn":[0,5,10,15]},{"myColumn2":[0.1,0.2,0.3]}]}]}

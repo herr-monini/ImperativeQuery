@@ -18,3 +18,11 @@ myQuery2 12345 0.1 = (
 mappy 123 0.1 = (
     MAP "{'baz': boo + baa}" ["baz" Int 1 25];
 )
+
+// binning
+binner 123 1.0 = (
+    BIN [
+    "myColumn" [0, 5, 10, 15],
+    "myColumn2" [0.1, 0.2, 0.3]
+    ];
+)
